@@ -1,0 +1,31 @@
+.nav-main a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: 0.3s;
+}
+
+.nav-main a:hover {
+  color: #0b0b0b;
+}
+
+.nav-main a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: rgb(0, 0, 0);
+  transition: width 0.3s ease;
+}
+
+.nav-main a:hover::after {
+  width: 100%;
+}
+
+.nav-main a.active::after {
+  width: 100%;
+  background: #ffffff;
+}
