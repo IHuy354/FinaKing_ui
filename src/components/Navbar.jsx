@@ -53,13 +53,16 @@ export default function Navbar() {
         }}
         className="nav-main"
       >
-        <NavLink style={{ fontSize: "19px" }} to="/" end>
+        <NavLink style={{ fontSize: "18px", fontWeight: "bold" }} to="/" end>
           Bảng điều khiển
         </NavLink>
-        <NavLink style={{ fontSize: "19px" }} to="/transactions">
+        <NavLink
+          style={{ fontSize: "18px", fontWeight: "bold" }}
+          to="/transactions"
+        >
           Giao dịch
         </NavLink>
-        <NavLink style={{ fontSize: "19px" }} to="/stats">
+        <NavLink style={{ fontSize: "18px", fontWeight: "bold" }} to="/stats">
           Thống kê
         </NavLink>
       </div>
@@ -69,9 +72,9 @@ export default function Navbar() {
         style={{ display: "flex", gap: "7px" }}
         sx={{ color: "white" }}
       >
-        <Avatar alt="lỗi logo" src="../../public/logo.jpg" />
+        <Avatar alt="lỗi logo" src="../../public/LogoLHU_Daf.png" />
         <div style={{ display: "flex" }}>
-          <p>Huy Lê</p>
+          <p style={{ fontSize: "13px", fontWeight: "bold" }}>Huy Lê</p>
           <ExpandMoreIcon />
         </div>
       </Button>
