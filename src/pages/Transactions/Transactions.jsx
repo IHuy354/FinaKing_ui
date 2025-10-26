@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,12 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import Sodu from "../../components/Sodu";
 import Boloc from "../../components/Boloc/Boloc";
-import { transactions } from "../../services/mockdata";
+import { transactionList } from "../../services/mockdata";
 import Backdrop from "@mui/material/Backdrop";
+import AddnewModal from "./AddnewModal/AddnewModal";
+import { Button } from "@mui/material";
 
 const categoryIcons = {
   "Đồ ăn & Đồ uống": "🍜",
@@ -26,9 +27,17 @@ const categoryIcons = {
   "Bán đồ cũ": "🛍️",
 };
 
-export default function TransactionList() {
+export default function Transactions() {
   const [openImage, setOpenImage] = React.useState(false);
   const [selectedImage, setSelectedImage] = React.useState("");
+
+  //add new
+  const [openGiaodich, setOpenGiaoDich] = useState(false);
+  const [transactions, setTransactions] = useState([]);
+  const handleAddTransaction = (data) => {
+    setTransactions((prev) => [...prev, { id: Date.now(), ...data }]);
+    setOpenGiaoDich(false);
+  };
 
   const formatCurrency = (amount) =>
     amount.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
@@ -53,10 +62,17 @@ export default function TransactionList() {
           "&:hover": { backgroundColor: "rgb(16, 172, 123)" },
         }}
         variant="contained"
+        onClick={() => setOpenGiaoDich(true)}
       >
         <AddBoxIcon sx={{ mr: 1 }} />
         Thêm giao dịch
       </Button>
+
+      <AddnewModal
+        open={openGiaodich}
+        onClose={()=> setOpenGiaoDich(false)}
+        onSubmit={handleAddTransaction}
+      />
 
       {/* Bộ lọc và số dư */}
       <Boloc />
@@ -80,7 +96,7 @@ export default function TransactionList() {
           </TableHead>
 
           <TableBody>
-            {transactions.map((t) => (
+            {transactionList.map((t) => (
               <TableRow
                 key={t.id}
                 hover

@@ -7,7 +7,7 @@ export const user = {
   balance: 12000000
 };
 
-export const transactions = [
+export const transactionList = [
   {
     id: "t001",
     type: "expense",

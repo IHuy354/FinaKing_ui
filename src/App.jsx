@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <div
         className="main-body"
-        style={{ background: "#f3f7fa", height: "100vh" }}
+        style={{ background: "#f3f7fa", height: "100%" }}
       >
         <Routes>
           <Route path="/" element={<Dashboard />} />
