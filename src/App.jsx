@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboarrd/Dashboard";
 import Transactions from "./pages/Transactions/Transactions";
 import Stats from "./pages/Stats";
 import Settings from "./pages/Settings";

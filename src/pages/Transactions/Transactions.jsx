@@ -13,6 +13,7 @@ import { transactionList } from "../../services/mockdata";
 import Backdrop from "@mui/material/Backdrop";
 import AddnewModal from "./AddnewModal/AddnewModal";
 import { Button } from "@mui/material";
+import Addnew from "../../components/Addnew/Addnew";
 
 const categoryIcons = {
   "Đồ ăn & Đồ uống": "🍜",
@@ -54,28 +55,10 @@ export default function Transactions() {
   return (
     <div>
       {/* Nút thêm giao dịch */}
-      <Button
-        sx={{
-          mb: 2,
-          mt: 2,
-          backgroundColor: "rgb(18, 195, 139)",
-          "&:hover": { backgroundColor: "rgb(16, 172, 123)" },
-        }}
-        variant="contained"
-        onClick={() => setOpenGiaoDich(true)}
-      >
-        <AddBoxIcon sx={{ mr: 1 }} />
-        Thêm giao dịch
-      </Button>
-
-      <AddnewModal
-        open={openGiaodich}
-        onClose={()=> setOpenGiaoDich(false)}
-        onSubmit={handleAddTransaction}
-      />
-
-      {/* Bộ lọc và số dư */}
+      <Addnew />
+      {/* Bộ lọc  */}
       <Boloc />
+      {/* Số dư ví hiện tại và các biến thể */}
       <Sodu />
 
       {/* Bảng dữ liệu */}

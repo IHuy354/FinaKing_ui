@@ -63,7 +63,7 @@ export default function Navbar() {
           Giao dịch
         </NavLink>
         <NavLink style={{ fontSize: "18px", fontWeight: "bold" }} to="/stats">
-          Thống kê
+          Trợ lý tài chính
         </NavLink>
       </div>
 
