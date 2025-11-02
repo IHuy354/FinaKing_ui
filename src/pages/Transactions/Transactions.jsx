@@ -6,14 +6,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import AddBoxIcon from "@mui/icons-material/AddBox";
 import Sodu from "../../components/Sodu";
 import Boloc from "../../components/Boloc/Boloc";
 import { transactionList } from "../../services/mockdata";
 import Backdrop from "@mui/material/Backdrop";
-import AddnewModal from "./AddnewModal/AddnewModal";
-import { Button } from "@mui/material";
 import Addnew from "../../components/Addnew/Addnew";
+import CategoryIcon from "../../components/Icon/CategoryIcon";
 
 const categoryIcons = {
   "Đồ ăn & Đồ uống": "🍜",
@@ -90,8 +88,17 @@ export default function Transactions() {
               >
                 {/* Danh mục + loại giao dịch */}
                 <TableCell component="th" scope="row">
-                  {categoryIcons[t.category] || "💸"}{" "}
-                  <strong>{t.category}</strong>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "10px",
+                      alignItems: "center",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    <CategoryIcon category={t.category} size={40} />
+                    <strong>{t.category}</strong>
+                  </div>
                   <div style={{ fontSize: "12px", color: "#666" }}>
                     {t.type === "income" ? "Thu nhập" : "Chi tiêu"}
                   </div>
