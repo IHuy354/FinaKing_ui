@@ -47,6 +47,7 @@ export default function CategoryIcon({ category, size = 40 }) {
         color: "white",
         boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
         userSelect: "none",
+        lineHeight: 1,
       }}
     >
       {icon}
